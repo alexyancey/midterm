@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Customer</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="javascripts/product.js"></script>
+  </head>
+  <body style="background-color: lightblue" ng-app="product" ng-controller="MainCtrl">
+    <h1>Shopping Interface</h1>
+    <br>
+    <h1>Current Products</h1>
+    <div ng-repeat="product in products | orderBy: 'title'">
+      <input type="checkbox" ng-model="product.checked">
+      {{product.title}} - price {{product.price}}
+      <img ng-src="{{product.image}}" width="100px" height="100px" />
+    </div>
+    <hr>
+    <form ng-submit="incrementOrders(products)" style = "margin-top30px;">
+      <button class="btn btn-primary" type="submit">Submit Purchase</button>
+    </form>
+    <br>
+    <h1>Shopping Cart</h1>
+    <div ng-repeat="product in cart">
+      {{product.title}} - price {{product.price}}
+      <img ng-src="{{product.image}}" width="100px" height="100px"/>
+    </div>
+  </body>
+</html>
